@@ -1,3 +1,5 @@
+//Java program that demonstrates String handling
+
 public class StringExample {
     public static void main(String[] args) {
         // 1. Creating Strings
