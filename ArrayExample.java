@@ -1,3 +1,6 @@
+//Java program that demonstrates arrays (declaration, initialization, traversal, operations).
+//Here is an example covering 1D, 2D arrays, and basic operations
+
 public class ArrayExample {
     public static void main(String[] args) {
         // 1. Single Dimensional Array
