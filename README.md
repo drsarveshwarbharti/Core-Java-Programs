@@ -1,4 +1,4 @@
-## Core-Java-Programs
+## Core Java Programs
 
 This repository is a collection of Core Java programs aimed at building a strong foundation in Java programming. 
 It covers essential concepts such as data types, operators, control structures, arrays, strings, methods, classes, objects, and basic OOP principles. 
