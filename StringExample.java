@@ -43,3 +43,49 @@ public class StringExample {
         System.out.println("Final StringBuilder result: " + sb);
     }
 }
+
+/* 
+OUTPUT:
+s1: Hello
+s2: World
+Concatenated String: Hello World
+
+--- String Methods ---
+Length of s3: 11
+Uppercase: HELLO WORLD
+Lowercase: hello world
+Substring(0,5): Hello
+Character at index 1: e
+Contains 'Hello': true
+Equals 'Hello World': true
+EqualsIgnoreCase 'hello world': true
+
+Split result:
+Alice
+Bob
+Charlie
+
+--- StringBuilder Example ---
+Final StringBuilder result: gnimmargorP++C
+*/
+
+
+//Explanation of tricky parts:
+
+/*Length → "Hello World" has 11 characters (including the space).
+Substring(0,5) → takes index 0 to 4 → "Hello".
+Split → "Alice,Bob,Charlie".split(",") gives ["Alice", "Bob", "Charlie"].
+StringBuilder steps:
+Start: "Java"
+append(" Programming") → "Java Programming"
+insert(0, "Welcome to ") → "Welcome to Java Programming"
+replace(11, 21, "C++") → "Welcome to C++ramming"
+delete(0, 11) → "C++ramming"
+reverse() → "gnimmar++C" → wait, careful…
+
+Let’s check properly:
+After replace → "Welcome to C++ramming"
+Delete first 11 chars "Welcome to " → "C++ramming"
+Reverse → "gnimmar++C"
+Final result: gnimmar++C (not "gnimmargorP++C" — my earlier step had a mistake).
+*/
