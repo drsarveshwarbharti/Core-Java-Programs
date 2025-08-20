@@ -1,4 +1,5 @@
 //Simple Java program that demonstrates declaring, initializing, and using a 2D array
+
 public class TwoDArrayExample {
     public static void main(String[] args) {
         // 1. Declaration and Initialization
@@ -18,13 +19,8 @@ public class TwoDArrayExample {
         int cols = sc.nextInt();
 
         int[][] matrix = new int[rows][cols];
-        */
-        
-        // 2. Accessing Elements/Single element
-        System.out.println("Element at [0][1]: " + matrix[0][1]); // 2
-        
-        /*
-        // Reading/accessing all elements of  2D array
+
+        // Reading all elements of  2D array from keyboard
         System.out.println("Enter the elements of the matrix:");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -32,7 +28,11 @@ public class TwoDArrayExample {
             }
         }
         */
-
+        
+        // 2. Accessing Elements/Single element
+        System.out.println("Element at [0][1]: " + matrix[0][1]); // 2
+        
+        
         // 3. Printing the 2D array using nested loops
         System.out.println("\n2D Array Elements:");
         for (int i = 0; i < matrix.length; i++) {
