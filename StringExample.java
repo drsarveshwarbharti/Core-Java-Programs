@@ -10,10 +10,19 @@ public class StringExample {
         System.out.println("s2: " + s2);
 
         // 2. String Concatenation
+        //====Example-1=====
         String s3 = s1 + " " + s2;
         System.out.println("Concatenated String: " + s3);
+        String s4 = s1.concat(" " + s2); // Using concat()
+        //====Example-2=====
+        //String s1 = "Java";
+        //String s2 = "Programming";
+        //String s3 = s1 + " " + s2;          // Using +
+        //String s4 = s1.concat(" " + s2);    // Using concat()
+        //==================
 
         // 3. String Methods
+        //====Example-1=====
         System.out.println("\n--- String Methods ---");
         System.out.println("Length of s3: " + s3.length());
         System.out.println("Uppercase: " + s3.toUpperCase());
@@ -23,6 +32,18 @@ public class StringExample {
         System.out.println("Contains 'Hello': " + s3.contains("Hello"));
         System.out.println("Equals 'Hello World': " + s3.equals("Hello World"));
         System.out.println("EqualsIgnoreCase 'hello world': " + s3.equalsIgnoreCase("hello world"));
+        //====Example-2=====
+        //String str = "Hello World";
+        //str.length();            // 11
+        //str.charAt(0);           // 'H'
+        //str.substring(0, 5);     // "Hello"
+        //str.toUpperCase();       // "HELLO WORLD"
+        //str.toLowerCase();       // "hello world"
+        //str.contains("World");   // true
+        //str.equals("Hello");     // false
+        //str.equalsIgnoreCase("hello world"); // true
+        //str.trim();              // Removes spaces at ends
+        //==================
 
         // 4. Splitting String
         String names = "Alice,Bob,Charlie";
@@ -32,7 +53,11 @@ public class StringExample {
             System.out.println(name);
         }
 
-        // 5. StringBuilder (mutable string)
+        // 5. Joining
+        //String joined = String.join(" - ", "A", "B", "C"); // "A - B - C"
+
+        // 6. StringBuilder (mutable string)
+        //====Example-1=====
         System.out.println("\n--- StringBuilder Example ---");
         StringBuilder sb = new StringBuilder("Java");
         sb.append(" Programming");   // add text
@@ -41,6 +66,14 @@ public class StringExample {
         sb.delete(0, 11);            // delete part
         sb.reverse();                // reverse string
         System.out.println("Final StringBuilder result: " + sb);
+        //====Example-2=====
+        //StringBuilder sb = new StringBuilder("Hello");
+        //sb.append(" World");        // "Hello World"
+        //sb.insert(6, "Java ");      // "Hello Java World"
+        //sb.replace(6, 10, "C++");   // "Hello C++ World"
+        //sb.delete(6, 10);           // "Hello World"
+        //sb.reverse();               // "dlroW olleH"
+        //==================
     }
 }
 
