@@ -1,5 +1,8 @@
 //if, if-else, and if-else-if ladder in a single Java program using user input (via Scanner)
 
+/* WAP in Java that checks whether entered number is positive or negative, even or odd 
+and check student grades based on marks entered by the user using if, if-else, and if-else-if ladder respectively */
+
 /* 
 1. Checks if number entered by the user is positive or not
 2. Checks whether entered number is even or odd
