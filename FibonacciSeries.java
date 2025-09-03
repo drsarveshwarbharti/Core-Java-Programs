@@ -36,6 +36,6 @@ public class FibonacciSeries {
 
 /*
 Example Run
-Enter a number: 5
-Sum of first 5 natural numbers = 15
+Enter the number of terms: 8
+Fibonacci Series up to 8 terms: 0 1 1 2 3 5 8 13
 */
