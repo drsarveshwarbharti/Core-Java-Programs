@@ -1,4 +1,4 @@
-/*Write a Java program to print the first n terms of the Fibonacci sequence.
+/*Write a Java program to print the first n terms of the Fibonacci sequence using For Loop.
 
 The Fibonacci series is:
 
@@ -8,7 +8,7 @@ Each term after the first two is the sum of the two preceding terms.
 */
 
 import java.util.Scanner;
-public class FibonacciSeries {
+public class FibonacciForLoop {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
