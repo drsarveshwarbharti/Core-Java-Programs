@@ -1,4 +1,4 @@
-/* Write a Java program to input a number n and calculate its factorial.
+/* Write a Java program to input a number n and calculate its factorial using For Loop.
   
 n!=n×(n−1)×(n−2)×...×1
 
