@@ -24,3 +24,9 @@ public class FileIOExample {
         }
     }
 }
+
+/*
+OUTPUT:
+Data written to file.
+File content: Java I/O Streams Example
+*/
