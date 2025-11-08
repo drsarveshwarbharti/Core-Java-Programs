@@ -1,0 +1,200 @@
+Recursion in Java
+
+💡 1. Definition
+
+Recursion is the process in which a method calls itself either directly or indirectly to solve a problem.
+
+In simple terms:
+
+Recursion is a technique where a function solves a problem by breaking it into smaller subproblems of the same type.
+
+Example (Simple Idea)
+void show() {
+    System.out.println("Hello");
+    show();  // recursive call
+}
+
+
+This will keep printing "Hello" infinitely → this is an example of infinite recursion (no stopping condition).
+
+⚙️ 2. Structure of a Recursive Function
+
+Every recursive function must have:
+
+Base Case (Termination Condition):
+→ Defines when the recursion should stop.
+
+Recursive Case:
+→ Defines how the function calls itself with smaller/simpler inputs.
+
+Syntax:
+returnType methodName(parameters) {
+    if (base_condition) {
+        // stop recursion
+        return value;
+    } else {
+        // recursive call
+        return methodName(smaller_problem);
+    }
+}
+
+🧠 3. Example 1: Factorial using Recursion
+
+The factorial of a number 
+𝑛
+n is:
+
+𝑛
+!
+=
+𝑛
+×
+(
+𝑛
+−
+1
+)
+!
+n!=n×(n−1)!
+Program:
+public class FactorialRecursion {
+    static int factorial(int n) {
+        if (n == 0 || n == 1)   // base case
+            return 1;
+        else
+            return n * factorial(n - 1);  // recursive case
+    }
+
+    public static void main(String[] args) {
+        int num = 5;
+        System.out.println("Factorial of " + num + " = " + factorial(num));
+    }
+}
+
+
+Output:
+
+Factorial of 5 = 120
+
+How it works (Step-by-Step)
+factorial(5)
+= 5 × factorial(4)
+= 5 × (4 × factorial(3))
+= 5 × 4 × (3 × factorial(2))
+= 5 × 4 × 3 × (2 × factorial(1))
+= 5 × 4 × 3 × 2 × 1
+= 120
+
+🧩 4. Example 2: Fibonacci Series using Recursion
+
+The Fibonacci sequence is:
+
+0, 1, 1, 2, 3, 5, 8, 13, ...
+
+
+Each number is the sum of the previous two.
+
+Program:
+public class FibonacciRecursion {
+    static int fib(int n) {
+        if (n == 0) return 0;   // base case 1
+        if (n == 1) return 1;   // base case 2
+        return fib(n - 1) + fib(n - 2);  // recursive case
+    }
+
+    public static void main(String[] args) {
+        int n = 7;
+        System.out.println("Fibonacci sequence:");
+        for (int i = 0; i < n; i++)
+            System.out.print(fib(i) + " ");
+    }
+}
+
+
+Output:
+
+Fibonacci sequence:
+0 1 1 2 3 5 8
+
+⚙️ 5. Example 3: Sum of Digits using Recursion
+Program:
+public class SumOfDigits {
+    static int sumDigits(int n) {
+        if (n == 0)
+            return 0;
+        else
+            return (n % 10) + sumDigits(n / 10);
+    }
+
+    public static void main(String[] args) {
+        int num = 1234;
+        System.out.println("Sum of digits of " + num + " = " + sumDigits(num));
+    }
+}
+
+
+Output:
+
+Sum of digits of 1234 = 10
+
+🔄 6. Types of Recursion
+Type	Description	Example
+Direct Recursion	Method calls itself directly.	factorial() calling factorial()
+Indirect Recursion	Method A calls Method B, and Method B calls Method A.	methodA() → methodB() → methodA()
+Tail Recursion	Recursive call is the last statement in the method.	return factorial(n - 1);
+Non-Tail Recursion	Some operations are performed after the recursive call.	return n * factorial(n - 1);
+🧮 7. Example of Indirect Recursion
+public class IndirectRecursion {
+    static void methodA(int n) {
+        if (n > 0) {
+            System.out.println("A: " + n);
+            methodB(n - 1);
+        }
+    }
+
+    static void methodB(int n) {
+        if (n > 1) {
+            System.out.println("B: " + n);
+            methodA(n / 2);
+        }
+    }
+
+    public static void main(String[] args) {
+        methodA(5);
+    }
+}
+
+
+Output:
+
+A: 5
+B: 4
+A: 2
+B: 1
+
+🧾 8. Advantages of Recursion
+
+✅ Reduces code size and improves readability.
+✅ Solves problems that are naturally recursive (like tree traversal, factorial, etc.).
+✅ Helpful in algorithms such as sorting, searching, and backtracking.
+
+⚠️ 9. Disadvantages of Recursion
+
+❌ Higher memory usage (each call adds to call stack).
+❌ Slower execution compared to loops (due to function call overhead).
+❌ Risk of StackOverflowError if base case is missing.
+
+🧠 10. Recursion vs Iteration
+Feature	Recursion	Iteration
+Definition	Function calls itself	Loop repeats statements
+Condition	Base case	Loop condition
+Performance	Slower (more memory)	Faster
+Readability	Easier for complex problems	Better for simple repetition
+Stack Usage	Uses call stack	Uses loop variables only
+✅ Summary
+Concept	Description
+Recursion	Function calls itself to solve subproblems
+Base Case	Stops recursion
+Recursive Case	Calls same function with smaller input
+Use Cases	Factorial, Fibonacci, Tree Traversal, Tower of Hanoi
+Caution	Must have a termination condition to avoid infinite recursion
