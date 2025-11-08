@@ -1,0 +1,13 @@
+package mypack; // must be the first statement
+
+public class Message {
+    public void display() {
+        System.out.println("Hello from mypack!");
+    }
+}
+
+
+To compile and run:
+
+javac -d . Message.java   // creates folder structure
+java mypack.Message
