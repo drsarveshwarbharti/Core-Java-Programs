@@ -1,0 +1,145 @@
+Exception Handling in Java
+
+1. Fundamentals of Exception Handling
+🔹 What is an Exception?
+
+An exception is an unexpected event or error that disrupts the normal flow of a program during execution.
+
+Examples:
+
+Dividing by zero
+
+Accessing an invalid array index
+
+Opening a file that doesn’t exist
+
+If not handled properly, such errors can crash the program.
+
+🔹 Purpose of Exception Handling
+
+To maintain normal program flow even when runtime errors occur.
+
+To handle runtime errors gracefully.
+
+To separate error-handling code from normal business logic.
+
+🔹 Keywords Used
+Keyword	Description
+try	Contains code that may throw an exception.
+catch	Handles the exception that occurs in the try block.
+finally	Contains code that always executes (cleanup code).
+throw	Used to explicitly throw an exception.
+throws	Declares exceptions that a method can throw.
+
+
+2. Exception Types
+
+Java exceptions are classified into two main types:
+
+A. Checked Exceptions
+
+Checked at compile time.
+
+Must be either caught or declared using throws.
+
+Example:
+
+IOException
+
+SQLException
+
+FileNotFoundException
+
+Example:
+
+try {
+    FileReader file = new FileReader("data.txt");
+} catch (FileNotFoundException e) {
+    System.out.println("File not found!");
+}
+
+B. Unchecked Exceptions (Runtime Exceptions)
+
+Checked at runtime.
+
+Usually caused by logical errors or careless programming.
+
+Example:
+
+ArithmeticException
+
+ArrayIndexOutOfBoundsException
+
+NullPointerException
+
+Example:
+
+int a = 10, b = 0;
+System.out.println(a / b); // Throws ArithmeticException
+
+C. Errors
+
+Serious issues not meant to be handled by applications.
+
+Example: OutOfMemoryError, StackOverflowError.
+
+
+
+3. Uncaught Exceptions
+
+If an exception occurs and is not caught, the Java Runtime Environment (JRE):
+
+Creates an exception object.
+
+Looks for a matching catch block.
+
+If no handler is found → program terminates abnormally.
+
+Example:
+
+public class UncaughtExample {
+    public static void main(String[] args) {
+        int a = 5 / 0;  // Uncaught ArithmeticException
+        System.out.println("This line won't execute");
+    }
+}
+
+
+Output:
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+
+
+4. try–catch Block
+Syntax:
+try {
+    // Code that might throw an exception
+} catch (ExceptionType e) {
+    // Code to handle the exception
+}
+
+Example:
+public class TryCatchDemo {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero!");
+        }
+        System.out.println("Program continues normally...");
+    }
+}
+
+
+Output:
+
+Error: Cannot divide by zero!
+Program continues normally...
+
+Summary Table
+Concept	Description
+Checked Exception	Checked at compile time (e.g., IOException)
+Unchecked Exception	Occurs at runtime (e.g., ArithmeticException)
+Error	Serious problem not handled by program (e.g., OutOfMemoryError)
+try–catch	Used to handle exceptions safely
+Uncaught Exception	No handler → program terminates abnormally
