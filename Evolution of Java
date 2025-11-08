@@ -1,0 +1,112 @@
+Evolution, Importance to the Internet, Features, Bytecode, and Object-Oriented Approach.
+
+🧩 Evolution of Java
+💡 1. Origin and Evolution of Java
+
+Java was developed by James Gosling and his team at Sun Microsystems in 1991 as part of a project called Green Project.
+It was initially designed for embedded systems and consumer electronic devices like TVs and set-top boxes.
+
+The language was originally named Oak (after an oak tree outside Gosling’s office).
+
+Later it was renamed to Java, inspired by Java coffee, due to trademark issues.
+
+The first official version, Java 1.0, was released in 1995.
+
+In 2010, Oracle Corporation acquired Sun Microsystems and took over Java’s development.
+
+🌐 2. Importance of Java to the Internet
+
+Java became the language of the Internet because of its security, portability, and platform independence.
+Here’s why it was revolutionary for web technology:
+
+Feature	Description
+Platform Independence	Java programs (applets) could run on any machine through web browsers using the Java Virtual Machine (JVM).
+Security	Java’s runtime environment restricts untrusted code from accessing local system resources (Sandbox model).
+Dynamic & Interactive	Java applets allowed dynamic, interactive content on web pages — unlike static HTML pages.
+Network-Centric	Java provides extensive networking libraries, making it easy to build distributed, client-server applications.
+
+🔹 “Java is to the Internet what C was to system programming.”
+
+⚙️ 3. Features of Java
+
+Java is famous for its powerful features that make it robust, secure, and platform-independent.
+
+Feature	Description
+Simple	Easy to learn, especially for C/C++ programmers. No pointers, header files, or multiple inheritance confusion.
+Object-Oriented	Everything in Java is an object — supports encapsulation, inheritance, and polymorphism.
+Platform-Independent	Write Once, Run Anywhere — code runs on any OS with JVM.
+Secure	No explicit pointers, built-in security features, bytecode verification, and sandboxing.
+Robust	Strong memory management, exception handling, and type checking at compile and runtime.
+Multithreaded	Supports concurrent execution of multiple threads.
+Portable	Java code behaves consistently across all platforms.
+High Performance	Bytecode is optimized by Just-In-Time (JIT) compiler.
+Dynamic	Supports runtime linking and dynamic class loading.
+Distributed	Enables communication through APIs like RMI and networking libraries.
+⚡ 4. Bytecode and JVM
+🔹 Source Code to Bytecode Process
+
+When a Java program is compiled, it doesn’t produce machine code directly.
+Instead, it produces Bytecode — an intermediate form understood by the Java Virtual Machine (JVM).
+
+.java (Source Code)
+   ↓
+javac (Java Compiler)
+   ↓
+.class (Bytecode)
+   ↓
+JVM interprets or JIT compiles
+   ↓
+Machine Code (Platform Specific)
+
+🔹 Advantages of Bytecode
+
+Platform-independent: Runs on any OS with a JVM.
+
+Secure: Verified before execution.
+
+Efficient: Optimized by the JIT compiler.
+
+🧠 5. Object-Oriented Approach in Java
+
+Java is a pure object-oriented programming language, which makes code modular, reusable, and maintainable.
+
+Key OOP Concepts in Java
+Concept	Description	Example
+Class	Blueprint for creating objects	class Student { }
+Object	Instance of a class	Student s1 = new Student();
+Encapsulation	Hiding data with access modifiers	private int marks;
+Inheritance	Acquiring properties of another class	class B extends A
+Polymorphism	Same method behaves differently	Method Overloading/Overriding
+Abstraction	Hiding implementation details	Abstract classes, Interfaces
+✅ Example: Object-Oriented Approach
+class Student {
+    private String name;
+
+    // Constructor
+    Student(String name) {
+        this.name = name;
+    }
+
+    // Method
+    void display() {
+        System.out.println("Student Name: " + name);
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student("Riya");
+        s1.display();
+    }
+}
+
+
+Output:
+
+Student Name: Riya
+
+🧾 6. Summary
+Topic	Key Point
+Evolution	Created by James Gosling in 1991; released in 1995.
+Importance	Secure, platform-independent, Internet-friendly.
+Features	Simple, Portable, Secure, Robust, OOP-based, Multithreaded.
+Bytecode	Intermediate code executed by JVM.
+OOP	Promotes modular, reusable, and maintainable code.
