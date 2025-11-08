@@ -1,0 +1,17 @@
+Importing Packages
+Syntax	Use
+import packageName.ClassName;	Import a single class
+import packageName.*;	Import all classes from the package
+import static packageName.ClassName.methodName;	Import static members only
+
+Example:
+
+import java.util.*; // imports all utility classes
+import mypack.Message; // imports user-defined class
+
+public class Test {
+    public static void main(String[] args) {
+        Message obj = new Message();
+        obj.display();
+    }
+}
