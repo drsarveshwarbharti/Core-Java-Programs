@@ -1,0 +1,21 @@
+/*
+Method Overriding occurs when a subclass (child class) provides a specific 
+implementation of a method that is already defined in its superclass (parent class).
+It allows a subclass to modify or enhance the behavior inherited from the parent class.
+🔹 Purpose
+To achieve runtime polymorphism.
+To provide specific behavior for subclass objects.
+*/
+
+class Parent {
+    void display() {
+        System.out.println("Display from Parent class");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    void display() {
+        System.out.println("Display from Child class");
+    }
+}
