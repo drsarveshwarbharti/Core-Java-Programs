@@ -1,0 +1,31 @@
+Access Protection (Access Modifiers)
+
+Access modifiers control visibility of classes, methods, and variables across packages.
+
+Modifier	Within Class	Same Package	Subclass (Other Package)	Other Packages
+private	✅	❌	❌	❌
+default (no modifier)	✅	✅	❌	❌
+protected	✅	✅	✅	❌
+public	✅	✅	✅	✅
+🔹 Example of Access Control
+package school;
+
+public class Student {
+    public int rollNo = 1;
+    private String name = "Riya";
+    protected String course = "Java";
+    int age = 20; // default
+}
+
+package test;
+import school.Student;
+
+public class AccessDemo extends Student {
+    public static void main(String[] args) {
+        AccessDemo obj = new AccessDemo();
+        System.out.println(obj.rollNo);    // accessible (public)
+        System.out.println(obj.course);    // accessible (protected)
+        // System.out.println(obj.name);   // not accessible (private)
+        // System.out.println(obj.age);    // not accessible (default)
+    }
+}
