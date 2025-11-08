@@ -1,0 +1,211 @@
+Use of this and super Keyword in Java
+
+💡 1. The this Keyword
+✅ Definition:
+
+this is a reference variable in Java that refers to the current object — the object whose method or constructor is being invoked.
+
+⚙️ Uses of this Keyword
+No.	Use	Description	Example
+1️⃣	Refers to current instance variables	Helps differentiate between instance variables and parameters with the same name.	this.variable
+2️⃣	Calls current class methods	Used when a method calls another method of the same class.	this.methodName()
+3️⃣	Calls another constructor (constructor chaining)	Used to call one constructor from another within the same class.	this()
+4️⃣	Passes current object as argument	Passes the current object reference to another method or constructor.	method(this)
+5️⃣	Returns current object	Useful for method chaining.	return this;
+🔹 Example 1: Referring to Instance Variables
+class Student {
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;  // differentiates instance variable from parameter
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class ThisExample {
+    public static void main(String[] args) {
+        Student s1 = new Student("Riya", 21);
+        s1.display();
+    }
+}
+
+
+Output:
+
+Name: Riya, Age: 21
+
+🔹 Example 2: Calling Another Constructor
+class Employee {
+    String name;
+    int salary;
+
+    Employee() {
+        this("Unknown", 0);  // calls parameterized constructor
+    }
+
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    void display() {
+        System.out.println(name + " earns " + salary);
+    }
+}
+
+public class ConstructorChaining {
+    public static void main(String[] args) {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee("Ankit", 50000);
+        e1.display();
+        e2.display();
+    }
+}
+
+
+Output:
+
+Unknown earns 0
+Ankit earns 50000
+
+🔹 Example 3: Returning Current Object
+class Demo {
+    Demo getDemo() {
+        return this;
+    }
+
+    void show() {
+        System.out.println("Returned current object using this");
+    }
+}
+
+public class ReturnThis {
+    public static void main(String[] args) {
+        new Demo().getDemo().show(); // method chaining
+    }
+}
+
+🧠 Summary of this Keyword
+Purpose	Example
+Refer instance variable	this.variable
+Call another constructor	this()
+Call current class method	this.method()
+Return current object	return this;
+Pass as argument	method(this)
+💡 2. The super Keyword
+✅ Definition:
+
+super is a reference variable used to refer to the immediate parent class object.
+
+It allows access to:
+
+Parent class variables
+
+Parent class methods
+
+Parent class constructors
+
+⚙️ Uses of super Keyword
+No.	Use	Description
+1️⃣	Access parent class variable	When child and parent have the same variable names.
+2️⃣	Access parent class method	To call overridden methods of the parent class.
+3️⃣	Call parent class constructor	To invoke parent constructor from subclass constructor.
+🔹 Example 1: Accessing Parent Class Variables
+class Parent {
+    int value = 100;
+}
+
+class Child extends Parent {
+    int value = 200;
+
+    void show() {
+        System.out.println("Child value: " + value);
+        System.out.println("Parent value: " + super.value);
+    }
+}
+
+public class SuperVariable {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.show();
+    }
+}
+
+
+Output:
+
+Child value: 200
+Parent value: 100
+
+🔹 Example 2: Calling Parent Class Method
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating...");
+    }
+}
+
+class Dog extends Animal {
+    void eat() {
+        System.out.println("Dog is eating...");
+    }
+
+    void show() {
+        super.eat(); // Calls parent class method
+        eat();       // Calls child class method
+    }
+}
+
+public class SuperMethod {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.show();
+    }
+}
+
+
+Output:
+
+Animal is eating...
+Dog is eating...
+
+🔹 Example 3: Calling Parent Constructor
+class Vehicle {
+    Vehicle() {
+        System.out.println("Vehicle constructor called");
+    }
+}
+
+class Car extends Vehicle {
+    Car() {
+        super(); // Calls Vehicle class constructor
+        System.out.println("Car constructor called");
+    }
+}
+
+public class SuperConstructor {
+    public static void main(String[] args) {
+        Car c = new Car();
+    }
+}
+
+
+Output:
+
+Vehicle constructor called
+Car constructor called
+
+🧾 Summary Table
+Keyword	Refers To	Used For	Example
+this	Current class object	Accessing current class members	this.name, this()
+super	Parent class object	Accessing parent class members	super.name, super()
+✅ Quick Comparison
+Feature	this	super
+Refers to	Current class instance	Parent class instance
+Calls constructor	this() → current class constructor	super() → parent class constructor
+Accesses	Current class members	Parent class members
+Inheritance use	No	Yes
