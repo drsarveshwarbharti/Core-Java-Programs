@@ -1,0 +1,228 @@
+Packages and Interfaces in Java
+
+
+💡 1. Packages in Java
+✅ Definition
+
+A package in Java is a collection of related classes, interfaces, and sub-packages.
+It helps organize code, avoid name conflicts, and control access.
+
+You can think of a package like a folder in your file system.
+
+🔹 Types of Packages
+Type	Description	Example
+Built-in Packages	Provided by Java API	java.util, java.io, java.net
+User-defined Packages	Created by the programmer	package mypack;
+🔹 Syntax for Creating a Package
+package mypack; // must be the first statement
+
+public class Message {
+    public void display() {
+        System.out.println("Hello from mypack!");
+    }
+}
+
+
+To compile and run:
+
+javac -d . Message.java   // creates folder structure
+java mypack.Message
+
+🔹 Importing Packages
+Syntax	Use
+import packageName.ClassName;	Import a single class
+import packageName.*;	Import all classes from the package
+import static packageName.ClassName.methodName;	Import static members only
+
+Example:
+
+import java.util.*; // imports all utility classes
+import mypack.Message; // imports user-defined class
+
+public class Test {
+    public static void main(String[] args) {
+        Message obj = new Message();
+        obj.display();
+    }
+}
+
+🔒 2. Access Protection (Access Modifiers)
+
+Access modifiers control visibility of classes, methods, and variables across packages.
+
+Modifier	Within Class	Same Package	Subclass (Other Package)	Other Packages
+private	✅	❌	❌	❌
+default (no modifier)	✅	✅	❌	❌
+protected	✅	✅	✅	❌
+public	✅	✅	✅	✅
+🔹 Example of Access Control
+package school;
+
+public class Student {
+    public int rollNo = 1;
+    private String name = "Riya";
+    protected String course = "Java";
+    int age = 20; // default
+}
+
+package test;
+import school.Student;
+
+public class AccessDemo extends Student {
+    public static void main(String[] args) {
+        AccessDemo obj = new AccessDemo();
+        System.out.println(obj.rollNo);    // accessible (public)
+        System.out.println(obj.course);    // accessible (protected)
+        // System.out.println(obj.name);   // not accessible (private)
+        // System.out.println(obj.age);    // not accessible (default)
+    }
+}
+
+⚙️ 3. Interfaces in Java
+✅ Definition
+
+An interface in Java is a fully abstract class that contains only abstract methods (and constants by default).
+
+It is used to achieve abstraction and multiple inheritance.
+
+🔹 Syntax
+interface InterfaceName {
+    // by default: public, abstract, and final
+    void method1();
+    void method2();
+}
+
+🔹 Implementing an Interface
+
+A class uses the implements keyword to provide implementation for interface methods.
+
+interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+    public void sound() {  // must be public
+        System.out.println("Dog barks");
+    }
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        Animal a = new Dog();  // interface reference
+        a.sound();
+    }
+}
+
+
+Output:
+
+Dog barks
+
+🔹 4. Applying Multiple Interfaces
+
+A class can implement multiple interfaces (unlike classes, which allow only single inheritance).
+
+interface A {
+    void methodA();
+}
+
+interface B {
+    void methodB();
+}
+
+class C implements A, B {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+
+    public void methodB() {
+        System.out.println("Method B");
+    }
+}
+
+public class MultipleInterfaces {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.methodA();
+        obj.methodB();
+    }
+}
+
+
+Output:
+
+Method A
+Method B
+
+🔹 5. Extending Interfaces
+
+Interfaces can also extend other interfaces (just like classes), allowing interface inheritance.
+
+interface Vehicle {
+    void start();
+}
+
+interface Car extends Vehicle {
+    void accelerate();
+}
+
+class Honda implements Car {
+    public void start() {
+        System.out.println("Honda starting...");
+    }
+
+    public void accelerate() {
+        System.out.println("Honda accelerating...");
+    }
+}
+
+public class InterfaceInheritance {
+    public static void main(String[] args) {
+        Honda h = new Honda();
+        h.start();
+        h.accelerate();
+    }
+}
+
+
+Output:
+
+Honda starting...
+Honda accelerating...
+
+💡 6. Default and Static Methods in Interface (Java 8+)
+
+Interfaces can now include default and static methods with implementations.
+
+interface Demo {
+    default void greet() {
+        System.out.println("Hello from default method!");
+    }
+
+    static void info() {
+        System.out.println("Static method in interface");
+    }
+}
+
+class DemoClass implements Demo { }
+
+public class DefaultStaticDemo {
+    public static void main(String[] args) {
+        DemoClass d = new DemoClass();
+        d.greet();          // calls default method
+        Demo.info();        // calls static method
+    }
+}
+
+🧾 7. Summary Table
+Concept	Keyword	Example
+Package	package	package mypack;
+Import	import	import java.util.*;
+Access Modifier	public, protected, private	public class A {}
+Interface Definition	interface	interface A { void show(); }
+Implementation	implements	class B implements A {}
+Interface Inheritance	extends	interface B extends A {}
+✅ 8. Advantages
+Concept	Benefit
+Packages	Organizes classes, avoids name conflicts, provides access control.
+Interfaces	Provides abstraction, supports multiple inheritance, enforces contract between class and interface.
