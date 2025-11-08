@@ -1,0 +1,129 @@
+Input / Output in Java
+
+💡 1. What is Java I/O?
+
+Java I/O (Input/Output) refers to the system of classes and interfaces that enable data reading (input) and writing (output) between a Java program and different data sources such as:
+
+Files
+
+Networks
+
+Keyboard (System.in)
+
+Console (System.out)
+
+All these classes are available in the package:
+
+import java.io.*;
+
+🧠 2. What is a Stream?
+
+A Stream is a sequence of data that flows from one source to a destination.
+
+Input Stream → reads data from a source into the program.
+
+Output Stream → writes data from the program to a destination.
+
+Think of it like water flowing through a pipe:
+
+💧 Input Stream → data coming in
+💧 Output Stream → data going out
+
+🔹 3. InputStream and OutputStream Classes
+
+These are abstract classes in java.io that form the foundation of byte-based I/O.
+
+(a) InputStream
+
+Used to read data in bytes.
+
+Key methods:
+
+int read()         // reads one byte
+int read(byte[] b) // reads bytes into array
+void close()       // closes the stream
+
+(b) OutputStream
+
+Used to write data in bytes.
+
+Key methods:
+
+void write(int b)        // writes one byte
+void write(byte[] b)     // writes byte array
+void flush()             // forces data to be written
+void close()             // closes the stream
+
+📘 4. InputStream Hierarchy
+                InputStream (abstract)
+                        │
+ ┌──────────────────────┼──────────────────────────┐
+ │                      │                          │
+FileInputStream   ByteArrayInputStream       FilterInputStream
+                                              │
+                                              ├── BufferedInputStream
+                                              ├── DataInputStream
+                                              └── PushbackInputStream
+
+Common InputStream Classes
+Class	Description
+FileInputStream	Reads data from files (byte by byte).
+ByteArrayInputStream	Reads data from a byte array.
+BufferedInputStream	Improves performance with buffering.
+DataInputStream	Reads primitive data types.
+📗 5. OutputStream Hierarchy
+                OutputStream (abstract)
+                        │
+ ┌──────────────────────┼──────────────────────────┐
+ │                      │                          │
+FileOutputStream   ByteArrayOutputStream      FilterOutputStream
+                                              │
+                                              ├── BufferedOutputStream
+                                              ├── DataOutputStream
+                                              └── PrintStream
+
+Common OutputStream Classes
+Class	Description
+FileOutputStream	Writes data to a file.
+ByteArrayOutputStream	Writes data into a byte array buffer.
+BufferedOutputStream	Buffers output data for efficiency.
+DataOutputStream	Writes primitive data types.
+PrintStream	Used for formatted output (e.g., System.out).
+🧮 6. Example Program: File I/O Using Streams
+import java.io.*;
+
+public class FileIOExample {
+    public static void main(String[] args) {
+        try {
+            // Write data to a file
+            FileOutputStream fout = new FileOutputStream("example.txt");
+            String message = "Java I/O Streams Example";
+            fout.write(message.getBytes());
+            fout.close();
+            System.out.println("Data written to file.");
+
+            // Read data from a file
+            FileInputStream fin = new FileInputStream("example.txt");
+            int i;
+            System.out.print("File content: ");
+            while ((i = fin.read()) != -1) {
+                System.out.print((char) i);
+            }
+            fin.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+✅ Output
+Data written to file.
+File content: Java I/O Streams Example
+
+🧾 7. Summary Table
+Type	Class	Purpose
+Byte Streams	InputStream, OutputStream	Read/write binary data
+Character Streams	Reader, Writer	Read/write character data
+Buffered Streams	BufferedInputStream, BufferedOutputStream	Increase performance
+Data Streams	DataInputStream, DataOutputStream	Read/write primitive data types
+Print Stream	PrintStream	Write formatted text output
