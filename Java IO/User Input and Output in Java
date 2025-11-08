@@ -1,0 +1,138 @@
+User Input and Output (I/O) in Java
+
+Java provides multiple ways for users to input data and for programs to display output.
+Let’s understand both step-by-step 👇
+
+💡 1. Output in Java
+
+Output means displaying data to the console (screen).
+
+🖥️ Using System.out.println()
+
+The most common way to display data:
+
+System.out.println("Hello, World!");
+
+
+System → Predefined class that represents the system.
+
+out → Standard output stream (usually the console).
+
+println() → Prints text and moves to a new line.
+
+✳️ Other Print Methods
+System.out.print("Hello ");      // No new line
+System.out.println("World!");    // With new line
+System.out.printf("Age: %d", 25); // Formatted output
+
+
+Output:
+
+Hello World!
+Age: 25
+
+💡 2. User Input in Java
+
+Java provides several ways to take input from the user.
+
+🧮 (A) Using Scanner Class (Most Common)
+
+Import the Scanner class from java.util:
+
+import java.util.Scanner;
+
+public class UserInputExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // Create Scanner object
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();          // Read string input
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();               // Read integer input
+
+        System.out.println("Hello, " + name + "! You are " + age + " years old.");
+
+        sc.close();  // Close scanner
+    }
+}
+
+
+Output:
+
+Enter your name: Riya
+Enter your age: 21
+Hello, Riya! You are 21 years old.
+
+🧮 (B) Using BufferedReader
+
+This is a traditional way to read input (faster for large inputs).
+
+import java.io.*;
+
+public class BufferedReaderExample {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter your city: ");
+        String city = br.readLine();
+
+        System.out.println("You live in " + city);
+    }
+}
+
+🧮 (C) Using Console Class
+
+The Console class is useful for secure input (like passwords):
+
+public class ConsoleExample {
+    public static void main(String[] args) {
+        java.io.Console console = System.console();
+
+        if (console != null) {
+            String username = console.readLine("Enter username: ");
+            char[] password = console.readPassword("Enter password: ");
+            System.out.println("Welcome, " + username);
+        } else {
+            System.out.println("No console available!");
+        }
+    }
+}
+
+⚙️ 3. Combining Input and Output
+import java.util.Scanner;
+
+public class UserIOExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int sum = a + b;
+        System.out.println("Sum = " + sum);
+        sc.close();
+    }
+}
+
+
+Output:
+
+Enter two numbers: 10 20
+Sum = 30
+
+🧾 4. Summary Table
+Method	Class	Package	Input Type	Commonly Used
+Scanner	java.util.Scanner	java.util	Basic (int, float, string)	✅ Yes
+BufferedReader	java.io.BufferedReader	java.io	String	Medium
+Console	java.io.Console	java.io	Text/Password	Rare
+System.out.print()	—	—	Output to console	✅ Yes
+🧠 5. Key Points
+
+Always close your input streams using .close().
+
+Handle exceptions using try-catch when using BufferedReader.
+
+System.out is an instance of PrintStream.
+
+Prefer Scanner for beginner-friendly user input.
