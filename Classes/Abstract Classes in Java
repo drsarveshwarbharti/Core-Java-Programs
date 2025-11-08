@@ -1,0 +1,118 @@
+Abstract Classes in Java
+💡 1. Definition
+
+An abstract class in Java is a class that is declared using the keyword abstract and cannot be instantiated (i.e., you cannot create objects directly from it).
+It is meant to serve as a base class for other classes.
+
+It may contain:
+
+Abstract methods (without implementation)
+
+Concrete methods (with implementation)
+
+Syntax:
+abstract class ClassName {
+    abstract void display(); // Abstract method (no body)
+    void show() {            // Concrete method
+        System.out.println("This is a concrete method.");
+    }
+}
+
+🧠 2. Key Points About Abstract Classes
+Concept	Explanation
+Keyword	Declared using abstract keyword.
+Object Creation	Cannot be instantiated directly.
+Purpose	Used to provide a common base class for subclasses.
+Methods	May contain both abstract and non-abstract methods.
+Constructors	Can have constructors (called during subclass instantiation).
+Inheritance	Must be extended by another class that provides implementation for abstract methods.
+Abstract Method Rule	If a class has even one abstract method, it must be declared abstract.
+⚙️ 3. Example: Abstract Class with Implementation
+// Abstract class
+abstract class Shape {
+    abstract void draw();  // Abstract method
+
+    void display() {       // Concrete method
+        System.out.println("This is a shape.");
+    }
+}
+
+// Subclass implementing abstract method
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Circle...");
+    }
+}
+
+// Driver class
+public class AbstractDemo {
+    public static void main(String[] args) {
+        // Shape s = new Shape(); // ❌ Not allowed (cannot instantiate)
+        Shape s = new Circle();   // ✅ Allowed (reference to subclass)
+        s.display();
+        s.draw();
+    }
+}
+
+Output:
+This is a shape.
+Drawing a Circle...
+
+🧩 4. Why Use Abstract Classes?
+Reason	Explanation
+Common base	Provides a template or base for other classes.
+Partial abstraction	Allows both abstract and concrete methods.
+Code reusability	Common code can be kept in the abstract class.
+Polymorphism	Abstract class references can refer to subclass objects.
+🔹 5. Abstract Class vs Interface
+Feature	Abstract Class	Interface
+Keyword	abstract	interface
+Methods	Abstract + Concrete	All abstract (Java 7); can have default/static (Java 8+)
+Variables	Can have any type	Always public static final
+Inheritance	Supports single inheritance	Supports multiple inheritance
+Constructor	Can have constructors	Cannot have constructors
+🔸 6. Example with Constructor and Variables
+abstract class Vehicle {
+    String brand;
+
+    Vehicle(String brand) {   // Constructor
+        this.brand = brand;
+    }
+
+    abstract void start();
+
+    void showBrand() {
+        System.out.println("Brand: " + brand);
+    }
+}
+
+class Car extends Vehicle {
+    Car(String brand) {
+        super(brand);
+    }
+
+    void start() {
+        System.out.println(brand + " Car is starting...");
+    }
+}
+
+public class VehicleDemo {
+    public static void main(String[] args) {
+        Vehicle v = new Car("Toyota");
+        v.showBrand();
+        v.start();
+    }
+}
+
+
+Output:
+
+Brand: Toyota
+Toyota Car is starting...
+
+✅ 7. Summary
+Concept	Description
+Abstract Class	A class that cannot be instantiated directly.
+Abstract Method	Method without implementation, defined in subclass.
+Use Case	When base class provides common functionality and forces subclass to define specific behavior.
+Supports	Partial abstraction and code reusability.
