@@ -22,3 +22,9 @@ public class SuperMethod {
         d.show();
     }
 }
+
+/*
+Output:
+Animal is eating...
+Dog is eating...
+*/
