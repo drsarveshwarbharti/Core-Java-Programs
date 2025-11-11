@@ -2,11 +2,12 @@ Access Protection (Access Modifiers)
 
 Access modifiers control visibility of classes, methods, and variables across packages.
 
-Modifier	Within Class	Same Package	Subclass (Other Package)	Other Packages
-private	✅	❌	❌	❌
-default (no modifier)	✅	✅	❌	❌
-protected	✅	✅	✅	❌
-public	✅	✅	✅	✅
+Modifier	    Within Class	Same Package	Subclass (Other Package)	Other Packages
+private	             ✅	            ❌	            ❌	                            ❌
+default (no modifier)✅            	✅	            ❌	                            ❌
+protected	         ✅	            ✅	            ✅	                            ❌
+public	             ✅	            ✅	            ✅	                            ✅
+
 🔹 Example of Access Control
 package school;
 
